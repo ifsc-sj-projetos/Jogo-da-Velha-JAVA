@@ -19,7 +19,7 @@ public class JogoBase {
         int contador = 1;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                matriz[i][j] = Character.forDigit(contador, 10);;
+                matriz[i][j] = Character.forDigit(contador, 10);
                 contador++;
             }
         }
@@ -96,8 +96,6 @@ public class JogoBase {
 
 
     public boolean jogada(int posicao) {
-        boolean mudou;
-        mudou = false;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (Character.getNumericValue(matriz[i][j]) == posicao) {
@@ -115,7 +113,7 @@ public class JogoBase {
     }
 
     public void limparTela() {
-        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.print("\n\n\n\n\n\n");
     }
 
     public void executarJogo() {
@@ -131,15 +129,18 @@ public class JogoBase {
         boolean jogadaFeita;
 
 
-        System.out.println("=-==-=-==-=-==-=-==-=-==-=-==-=-==" +
-                "\n Bem vindo ao jogo da velha!" +
-                "\n Cadastre os jogadores abaixo\n" +
-                "=-==-=-==-=-==-=-==-=-==-=-==-=-==");
-        System.out.print("Player 1:" +
-                "\n--> ");
+        System.out.println("""
+                           =-==-=-==-=-==-=-==-=-==-=-==-=-==
+                            Bem vindo ao jogo da velha!
+                            Cadastre os jogadores abaixo
+                           =-==-=-==-=-==-=-==-=-==-=-==-=-==""");
+        System.out.print("""
+                         Player 1:
+                         --> """);
         player1 = scanner.nextLine();
-        System.out.print("Player 2: " +
-                "\n--> ");
+        System.out.print("""
+                         Player 2: 
+                         --> """);
         player2 = scanner.nextLine();
         System.out.println("Aperte enter para iniciar o jogo");
         scanner.nextLine();
@@ -176,19 +177,23 @@ public class JogoBase {
 
                 resultado = verificaResultado();
 
-                if (resultado == 'X' || resultado == 'O') {
-                    limparTela();
-                    printTabuleiro();
-                    System.out.println("\nParabéns, " + (resultado == 'X' ? player1 : player2) + " (" + resultado + ") você venceu!");
-                    jogoTerminou = true;
-                }else if (resultado == 'E') {
-                    limparTela();
-                    printTabuleiro();
-                    System.out.println("\n🤝🤝 Velha! Ninguém venceu. 🤝🤝");
-                    jogoTerminou = true;
-                }else {
-                    limparTela();
-                    mudaJogador();
+                switch (resultado) {
+                    case 'X', 'O' -> {
+                        limparTela();
+                        printTabuleiro();
+                        System.out.println("\nParabéns, " + (resultado == 'X' ? player1 : player2) + " (" + resultado + ") você venceu!");
+                        jogoTerminou = true;
+                    }
+                    case 'E' -> {
+                        limparTela();
+                        printTabuleiro();
+                        System.out.println("\n🤝🤝 Velha! Ninguém venceu. 🤝🤝");
+                        jogoTerminou = true;
+                    }
+                    default -> {
+                        limparTela();
+                        mudaJogador();
+                    }
                 }
             }else{
                 System.out.println("Posição inválida. Tente novamente!");
@@ -197,7 +202,6 @@ public class JogoBase {
         }
         System.out.println("Jogo encerrado. Obrigado por jogar!\n");
         System.out.println("Aperte enter para voltar ao menu do jogo");
-        scanner.nextLine();
         scanner.nextLine();
     }
 }

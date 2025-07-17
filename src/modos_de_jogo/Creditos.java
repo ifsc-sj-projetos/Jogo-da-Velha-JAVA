@@ -6,7 +6,8 @@ public class Creditos {
     Scanner scanner = new Scanner(System.in);
 
     public void exibirCreditos() {
-        System.out.println("-=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=");
+        limparTela();
+        System.out.println("-=--=--=--=--=--=--Créditos--=--=--=--=--=--=--=--=");
         System.out.println("Jogo feito por: Eduardo Cardoso e Talles Souza");
         System.out.println("Disciplina: Pensamento Computacional e Algoritmos");
         System.out.println("-=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=\n");
@@ -18,6 +19,6 @@ public class Creditos {
     }
 
     public void limparTela() {
-        System.out.print("\n\n\n\n\n\n");
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 }
