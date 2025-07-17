@@ -111,7 +111,7 @@ public class JogoDaVelhaComputador {
 
     public void limparTela() {
         // Lógica do Jogo Base
-        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.print("\n\n\n\n\n\n");
     }
 
     public void executarJogo() {

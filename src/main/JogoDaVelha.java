@@ -31,22 +31,14 @@ public class JogoDaVelha {
             }
 
             switch (opcao) {
-                case 1:
-                    jogoBase.executarJogo();
-                    break;
-                case 2:
-                    jogoComputador.executarJogo();
-                    break;
-                case 3:
-                    jogoInfinito.executarJogo();
-                    break;
-                case 4:
-                    creditos.exibirCreditos();
-                    break;
-                case 5:
+                case 1 -> jogoBase.executarJogo();
+                case 2 -> jogoComputador.executarJogo();
+                case 3 -> jogoInfinito.executarJogo();
+                case 4 -> creditos.exibirCreditos();
+                case 5 -> {
                     System.out.println("Saindo do jogo...");
                     System.exit(0);
-                    break;
+                }
             }
 
         } while (true);
